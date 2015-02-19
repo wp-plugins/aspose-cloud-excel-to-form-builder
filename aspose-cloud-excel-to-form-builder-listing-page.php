@@ -19,8 +19,8 @@ $result_set = $wpdb->get_results($sql);
                 <tr>
                     <td><?php echo $row->id; ?></td>
                     <td><?php echo $row->filename; ?></td>
-                    <td>[apc action = entry; filename=<?php echo $row->filename; ?> ]</td>
-                    <td>[apc action = list; filename=<?php echo $row->filename; ?> ]</td>
+                    <td>[apc action = entry , filename=<?php echo $row->filename; ?> ]</td>
+                    <td>[apc action = list , filename=<?php echo $row->filename; ?> ]</td>
 
                 </tr>
             <?php } ?>

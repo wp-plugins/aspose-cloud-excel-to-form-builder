@@ -183,10 +183,23 @@ function UnsetOptionsAsposePostsExporter() {
 register_uninstall_hook(__FILE__, 'UnsetOptionsAsposePostsExporter');
 
 function AsposePostsExporterAdminRegisterSettings() {
+
+    global $wpdb;
+
+    $create_new_table = '
+        CREATE TABLE IF NOT EXISTS `'.$wpdb->prefix.'apc_shortcodes` (
+        `id` int(11) NOT NULL,
+          `filename` text NOT NULL,
+          `head_row` text NOT NULL
+        ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+        ';
+
+    $wpdb->query($create_new_table);
     // Registering the settings
 
     register_setting('aspose_posts_exporter_options', 'aspose_cloud_excel_to_form_app_sid');
     register_setting('aspose_posts_exporter_options', 'aspose_cloud_excel_to_form_app_key');
+
 
 }
 
@@ -263,3 +276,5 @@ function check_upload_aspose_excel_context($context) {
     }
     return FALSE;
 }
+
+require_once('apc-shortcodes.php');

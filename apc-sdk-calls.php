@@ -49,16 +49,6 @@ $filename = $upload_dir['path'] . '/' . $post_params['excel_file_name'];
 
 $ext = pathinfo($filename, PATHINFO_EXTENSION);
 
-function generateAlphabet($na) {
-    $sa = "";
-    while ($na >= 0) {
-        $sa = chr($na % 26 + 65) . $sa;
-        $na = floor($na / 26) - 1;
-    }
-    return $sa;
-}
-
-
 if($ext == 'xls' || $ext == 'xlsx') {
 
     $uploadpath = $upload_dir;
@@ -78,7 +68,7 @@ if($ext == 'xls' || $ext == 'xlsx') {
         $total_cols = $func->getMaxColumn(0,255);
         $total_rows = $func->getMaxRow(0,10000);
         $headings = array();
-        for($i = 0; $i < $total_cols; $i++) {
+        for($i = 0; $i <= $total_cols; $i++) {
 
             $cell = generateAlphabet($i) . '1';
             $result = $func->getCell($cell);
@@ -102,6 +92,3 @@ if($ext == 'xls' || $ext == 'xlsx') {
 } else {
     echo "Wrong File was selected!";
 }
-
-
-
