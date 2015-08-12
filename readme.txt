@@ -3,7 +3,7 @@ Contributors: fahadadeel@gmail.com
 Contributor's website: http://cloud.aspose.com/
 Tags: aspose cloud excel to form builder, wordpress , data entry form, excel to data entry, excel wordpress
 Requires at least: 2.8
-Tested up to: 3.8.1
+Tested up to: 4.3
 Stable tag: 1.0
 License: GPLv2 or later
 
